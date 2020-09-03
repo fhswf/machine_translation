@@ -1,0 +1,13 @@
+#verts ignorieren da zu groß
+verts
+
+# die finalen Textdateien sind auch zu groß
+aligned_sentences_deu
+aligned_sentences_en
+
+DEU_ENG.align
+
+deutsch_vorbereitet
+deutsche_head
+englisch_head
+englisch_vorbereitet
