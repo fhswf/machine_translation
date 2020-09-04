@@ -10,7 +10,7 @@ def datei_oeffnen():
         for paarung in f:
             deu_liste.append(paarung.split()[0])
             eng_liste.append(paarung.split()[1])         
-    return deu_liste,eng_liste
+    return deu_liste , eng_liste
 
 
 def verteiler_funktion(liste_mit_alignments:list(), input_datei:str()):
@@ -69,4 +69,4 @@ def schreibe_in_datei(output_datei:str(), liste_zum_schreiben:list()):
 liste_deutsche_alignments,liste_englische_alignments = datei_oeffnen()
 #print(f"Deutsche liste: {liste_deutsche_alignments} \nenglische LIste: {liste_englische_alignments}")
 liste_zum_schreiben = verteiler_funktion(liste_deutsche_alignments,"deutsch_vorbereitet")
-schreibe_in_datei("alignte_sätze_deu",liste_zum_schreiben)
+schreibe_in_datei("aligned_sentences_deu",liste_zum_schreiben)
