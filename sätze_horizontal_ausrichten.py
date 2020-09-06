@@ -1,3 +1,7 @@
+"""
+Diese Skript wandelt die im Corpus vertikal geschriebenen Sätze in horizontale Sätze um, entfernt alle <tags> und schreibt den so
+generieten Text in eine Ausgabedatei.
+"""
 liste = list()
 l1 = list()
 
@@ -12,7 +16,9 @@ def datei_oeffnen():
             yield outerToken.split()[0]
     
 
-
+"""
+Der Inhalt, der sich zwischen einem <p> und einem </p> Tag befindet wird an den aufrufenden zurück gegeben.
+"""
 def custom_for_loop(iterable):   
     l2 = list()
     satz_nr = 0
@@ -26,7 +32,9 @@ def custom_for_loop(iterable):
         else:
             l2.append(token)
             
-
+"""
+Diese Funktion entfernt alle anderen sich im Text befindelichen Tags. Und wandelt den Inhalt der Liste in einen String um.
+"""
 def entferne_tags(iterable: list):
     text = ""
     for i, token in enumerate(iterable):
@@ -37,7 +45,9 @@ def entferne_tags(iterable: list):
             text += " "
     return text
 
-
+"""
+Der übergebene Text wird in eine Ausgabedatei geschrieben.
+"""
 def schreibe_in_datei(text : str, satz_nr: int):
     with open("edd", "a") as f:
         f.write(f"{satz_nr}\t{text}")

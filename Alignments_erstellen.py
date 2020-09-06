@@ -1,7 +1,14 @@
+"""
+Das Skript filtert alle gültigen Alignements aus der eingabedatei und schreibt diese in eine Ausgabedatei.
+"""
 liste_1 = list()
 liste_2 = list()
 
-
+"""
+Diese Funktion öffnet die Eingabedatei und filtert alle Einträge raus, in denen eine -1 vorkommt.
+-1 bedeutet, dass für diesen Satz in der anderen Sprache kein "Partnersatz" gibt.
+Alle anderen Alignments werden in eine Liste geschrieben, welche an den Aufruf zurück gegeben wird.
+"""
 def datei_oeffnen():
     tmp_liste = list()
     with open("DEU_ENG.align", "r") as f:
@@ -12,7 +19,11 @@ def datei_oeffnen():
                 tmp_liste.append((deu,eng))
     return tmp_liste
 
-
+"""
+Die Funktion iteriert über die übergebene Liste und prüft jedes Alingmentpaar darauf, ob es ein Mehr- Zwei- oder Einzeiler ist.
+DAnn wird dem Alignmenpaar die entsprechende Methode aufgerufen.
+So müssen beide Teile des Päärchens das selbe Sonderzeichen beinhalten. bzw. beide keins.
+"""
 def pruefe_sonderzeichen(bereinigte_liste:list()):
     finale_liste = list()
     for deu,eng in bereinigte_liste:
@@ -29,7 +40,10 @@ def pruefe_sonderzeichen(bereinigte_liste:list()):
             continue
     return finale_liste
 
-
+"""
+Die Funktion überprüft, ob das Alignmentpaar für beide Sprachen gleich viele Sätze beinhaltet.
+Wenn nein, dann wird ein False zurück an den Aufruf gegeben.
+"""
 def pruefe_doppelpunkte(deu: str(), eng: str()):
     deu_1 = int(deu.split(":")[0])
     deu_2 = int(deu.split(":")[1])
@@ -46,6 +60,9 @@ def pruefe_groeßer_grenzwert(zahl: int()):
     return zahl > grenzwert
 
 
+"""
+Die übergebne LIste mit gültigen Alignments wird in eine Ausgabedatei geschrieben.
+"""
 def schreibe_in_datei(finale_liste: list()):
     with open ("finale_paarungen", "a") as out_file:
         for token in finale_liste: 
