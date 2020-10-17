@@ -65,12 +65,12 @@ liste_de= list()
 liste_en = list()
 liste_mit_langen_saetzen = list()
 liste_mit_indexen_von_kurzen_saetzen = list()
-liste_de = datei_oeffnen("aligned_sentences_deu")
+liste_de = datei_oeffnen("Beispiel")
 liste_en = datei_oeffnen("aligned_sentences_en")
-liste_mit_indexen_von_kurzen_saetzen, liste_mit_langen_saetzen = pruefe_laenge(liste_de, 6)
+liste_mit_indexen_von_kurzen_saetzen, liste_mit_langen_saetzen = pruefe_laenge(liste_de, 11)
 
 # Hier werden die langen Sätze aus der 1. Datei in eine outputdatei geschrieben.
-schreibe_lange_saetze_in_datei(liste_mit_langen_saetzen,"lange_sätze_deu")
+schreibe_lange_saetze_in_datei(liste_mit_langen_saetzen,"Beispiel")
 
 
 liste_mit_langen_saetzen = filter_zur_kurze_saetze(liste_en, liste_mit_indexen_von_kurzen_saetzen)
